@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Section;
 
-class SectionController extends Controller
+class SubjectGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $data['all_data']=Section::where('is_active',1)->get();
-
-        return view('backend.section.view_section',$data);
-        
+        //
     }
 
     /**
