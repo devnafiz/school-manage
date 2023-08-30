@@ -18,6 +18,24 @@
                 :text="__('Dashboard')" />
         </li>
 
+        <li class="c-sidebar-nav-dropdown {{ activeClass(Route::is('admin.auth.user.*') || Route::is('admin.auth.role.*'), 'c-open c-show') }}">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-user"
+                    class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('Academics')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                     <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.section.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Sections')"
+                                :active="activeClass(Route::is('admin.section.index.*'), 'c-active')" />
+                        </li>
+                </ul> 
+        </li>          
+
         @if (
             $logged_in_user->hasAllAccess() ||
             (

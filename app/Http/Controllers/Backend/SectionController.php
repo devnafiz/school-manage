@@ -16,6 +16,7 @@ class SectionController extends Controller
     public function index()
     {
         $data['all_data']=Section::where('is_active',1)->get();
+        //dd($data['all_data']);
 
         return view('backend.section.view_section',$data);
         
@@ -39,7 +40,14 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->SectionValidation();
+
+        if (Section::create($data)) {
+            return redirect()->back()->withFlashSuccess('section created successfully');
+        }
+        return redirect()->back()->withFlashWarning('Something went wrong !');
+
+
     }
 
     /**
@@ -85,5 +93,16 @@ class SectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function SectionValidation()
+    {
+        $data = request()->validate([
+            'section' => 'required|string',
+           
+        ]);
+
+        return $data;
     }
 }
