@@ -16,7 +16,7 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $data['section']=Section::get();
+        $data['sections']=Section::get();
         $data['classes']= Classes::get();
 
         return view('backend.class.index',$data);

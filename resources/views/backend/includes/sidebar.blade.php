@@ -26,6 +26,14 @@
                     :text="__('Academics')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.class.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Classes')"
+                                :active="activeClass(Route::is('admin.class.index.*'), 'c-active')" />
+                        </li>
+
                      <li class="c-sidebar-nav-item">
                             <x-utils.link
                                 :href="route('admin.section.index')"
