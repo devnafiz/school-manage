@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Section;
+use App\Models\Classes;
 
 class ClassController extends Controller
 {
@@ -14,7 +16,11 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
+        $data['section']=Section::get();
+        $data['classes']= Classes::get();
+
+        return view('backend.class.index',$data);
+        
     }
 
     /**
