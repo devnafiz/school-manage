@@ -66,8 +66,8 @@
                                       </ul>
                                       </td>
                                       <td>
-                                        <a><i class="fa fa-edit"></i></a>
-                                        <a><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.class.edit',$class->id)}}"><i class="fa fa-edit"></i></a>
+                                        <a href=""><i class="fa fa-trash"></i></a>
                                       </td>
 
                                    </tr>  

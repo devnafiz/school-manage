@@ -72,8 +72,11 @@ class ClassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {    
+        $data['sections']=Section::get();
+        $data['edit_data'] =Classes::with('sections')->findOrFail($id);
+        //dd($data['edit_data']);
+         return view('backend.class.edit',$data);
     }
 
     /**
@@ -85,7 +88,13 @@ class ClassController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $class =Classes::findOrFail($id);
+
+        $class->class=$request->class;
+        $class->save();
+        $section=$request->section;   
+        $class->sections()->sync($section);
+        return redirect()->back();
     }
 
     /**
