@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Classes extends Model
 {
     use HasFactory;
+
+    public function sections(){
+
+    	return $this->belongsToMany(Section::class,'class_sections','class_id','section_id');
+    }
 }

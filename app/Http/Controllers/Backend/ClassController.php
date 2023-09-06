@@ -41,7 +41,16 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $class =new Classes();
+        $class->class =$request->class;
+        $class->save();
+
+       
+        $section=$request->section;
+        $class->sections()->sync($section);
+
+        return redirect()->back();
+
     }
 
     /**
