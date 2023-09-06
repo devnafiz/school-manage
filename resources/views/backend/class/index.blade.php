@@ -47,12 +47,32 @@
                    <table class="table table-striped table-bordered table-hover example dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Section: activate to sort column ascending" style="width: 359px;">Section</th>
-                                        <th class="text-right noExport sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 259px;">Action</th>
+                                      <th>class</th>
+                                        <th >Section</th>
+                                        <th >Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>      
-                                    
+                                   @foreach($classes as $class)
+
+                                   <tr>
+                                      <td>{{$class->class}}</td>
+
+                                      <td>
+                                        <ul>
+                                        @foreach($class->sections as $section)
+                                              <li>{{$section->section}}</li>
+                                        @endforeach
+                                      </ul>
+                                      </td>
+                                      <td>
+                                        <a><i class="fa fa-edit"></i></a>
+                                        <a><i class="fa fa-trash"></i></a>
+                                      </td>
+
+                                   </tr>  
+
+                                   @endforeach
                                  
                                 </tbody>
                             </table>
