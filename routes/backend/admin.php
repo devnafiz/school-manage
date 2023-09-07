@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use Tabuna\Breadcrumbs\Trail;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\ClassController;
+use App\Http\Controllers\Backend\SubjectController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -17,4 +18,5 @@ Route::get('dashboard', [DashboardController::class, 'index'])
 
  Route::resource('section',SectionController::class); 
  
- Route::resource('class',ClassController::class);   
+ Route::resource('class',ClassController::class); 
+ Route::resource('subject',SubjectController::class);  

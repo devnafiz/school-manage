@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
 class SubjectController extends Controller
 {
@@ -14,7 +15,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $data['subjects']=Subject::all();
+
+        return view('backend.subject.index',$data);
     }
 
     /**
