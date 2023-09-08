@@ -38,7 +38,16 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($this->SubjectValidation());
+        $data =$this->SubjectValidation();
+
+        if(Subject::create($data)){
+            return redirect()->back()->withFlashSuccess('Successfully add  subject');
+
+        }else{
+
+             return redirect()->back()->withFlashWarning(' Something worng!');
+        }
     }
 
     /**
@@ -84,5 +93,17 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public  function SubjectValidation(){
+
+        $data = request()->validate([
+
+           'name'=>'required|string|max:120',
+           'type'=>'required',
+           'code'=>'required|max:120',
+
+        ]);
+        return $data;
     }
 }
