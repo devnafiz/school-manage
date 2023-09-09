@@ -51,7 +51,7 @@
                        </div>
                        <div  class="form-group">
                         <label>Description</label>
-                         <textarea  name="description" cols="4" rows="3"> 
+                         <textarea  name="description" cols="40%" rows="3" class="form-control"> 
                            
                          </textarea>
  
