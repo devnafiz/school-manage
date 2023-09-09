@@ -5,6 +5,7 @@ use Tabuna\Breadcrumbs\Trail;
 use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\Backend\ClassController;
 use App\Http\Controllers\Backend\SubjectController;
+use App\Http\Controllers\Backend\HostelContoller;
 
 
 // All route names are prefixed with 'admin.'.
@@ -19,4 +20,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])
  Route::resource('section',SectionController::class); 
  
  Route::resource('class',ClassController::class); 
- Route::resource('subject',SubjectController::class);  
+ Route::resource('subject',SubjectController::class); 
+
+ Route::get('/hostel/list',[HostelContoller::class,'index'])->name('hostel.index'); 
+ Route::get('/hostel/store',[HostelContoller::class,'store'])->name('hostel.store'); 

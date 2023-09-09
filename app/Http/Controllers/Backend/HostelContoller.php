@@ -11,4 +11,14 @@ use App\Models\RoomType;
 class HostelContoller extends Controller
 {
     //
+
+    public function index(){
+
+    	//dd('ok');
+
+    	$data['all_data']= Hostel::get();
+
+    	return view('backend.hostel.index',$data);
+
+    }
 }
