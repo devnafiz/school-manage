@@ -68,10 +68,10 @@
                         </li>
                         <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.class.index')"
+                                :href="route('admin.room.type.index')"
                                 class="c-sidebar-nav-link"
                                 :text="__('Room Type')"
-                                :active="activeClass(Route::is('admin.class.index.*'), 'c-active')" />
+                                :active="activeClass(Route::is('admin.room.type.index.*'), 'c-active')" />
                         </li>
 
                      <li class="c-sidebar-nav-item">

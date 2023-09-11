@@ -30,4 +30,25 @@ class HostelContoller extends Controller
      	return redirect()->back()->withSuccess('Add hostel successfully');
 
      } 
+
+     //room trype
+
+     public  function AllRoomtype(){
+
+     	$data['all_data']=RoomType::all();
+
+     	return view('backend.hostel.roomtype.index',$data);
+
+     }
+
+     public function roomTypeStore(Request $request){
+
+     	         $room=new RoomType();
+     	         $room->room_type =$request->room_type;
+     	         $room->description =$request->description;
+     	         $room->save();
+     	         return redirect()->back()->withSuccess('add data successfully');
+
+
+     }
 }
