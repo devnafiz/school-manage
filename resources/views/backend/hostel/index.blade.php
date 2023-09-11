@@ -67,9 +67,10 @@
                    <table class="table table-striped table-bordered table-hover example ajaxTable datatable  no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                     <tr role="row">
-                                        <th>Subject</th>
-                                        <th >Suject code</th>
-                                         <th >Suject type</th>
+                                        <th>Notel Name</th>
+                                        <th >Type</th>
+                                        <th>Address</th>
+                                        <th>intake</th>
                                         <th >Action</th>
                                     </tr>
                                 </thead>
@@ -77,9 +78,10 @@
                                    @foreach($all_data as $data)
 
                                    <tr>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
+                                      <td>{{$data->hostel_name}}</td>
+                                      <td>{{$data->type}}</td>
+                                      <td>{{$data->address}}</td>
+                                      <td>{{$data->intake}}</td>
 
                                       
                                       <td>
