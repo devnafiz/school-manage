@@ -27,3 +27,6 @@ Route::get('dashboard', [DashboardController::class, 'index'])
 
  Route::get('/hostel/room/type',[HostelContoller::class,'AllRoomtype'])->name('room.type.index');
  Route::post('/hostel/room/type',[HostelContoller::class,'roomTypeStore'])->name('room.type.store');
+Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.room.index'); 
+ Route::post('/hostel/room/store',[HostelContoller::class,'roomStore'])->name('hostel.room.store'); 
+

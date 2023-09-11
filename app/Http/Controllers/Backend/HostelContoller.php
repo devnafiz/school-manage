@@ -51,4 +51,13 @@ class HostelContoller extends Controller
 
 
      }
+
+     public function hostelRoom(){
+
+     	$data['all_data']=Hostel::all();
+     	$data['type_data']=RoomType::all();
+     	
+
+     	return view('backend.hostel.hostelroom.index',$data);
+     }
 }
