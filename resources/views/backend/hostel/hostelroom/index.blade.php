@@ -18,7 +18,7 @@
         <div  class="row">
                <div class="col-md-4">
                    <h4> Add Hostel</h4>
-                   <form action="{{route('admin.hostel.store')}}" method="POST">
+                   <form action="{{route('admin.hostel.room.store')}}" method="POST">
                     @csrf
 
                        <div  class="form-group">

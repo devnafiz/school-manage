@@ -56,8 +56,26 @@ class HostelContoller extends Controller
 
      	$data['all_data']=Hostel::all();
      	$data['type_data']=RoomType::all();
-     	
+
 
      	return view('backend.hostel.hostelroom.index',$data);
+     }
+
+     public function roomStore(Request $request){
+
+     	  $hostelroom = new HostelRoom();
+     	  $hostelroom->room_no =$request->room_no;
+     	  $hostelroom->hostel_id =$request->hostel_id;
+     	  $hostelroom->room_type_id =$request->room_type_id;
+
+     	  $hostelroom->no_of_bed =$request->no_of_bed;
+     	  $hostelroom->cost_per_bed =$request->cost_per_bed;
+     	  $hostelroom->description =$request->description;
+     	  $hostelroom->save();
+
+          return redirect()->back()->withSuccess('add data successfully');
+
+
+
      }
 }
