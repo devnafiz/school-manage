@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePicuppointsTable extends Migration
+class CreatePicupRoutesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePicuppointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('picuppoints', function (Blueprint $table) {
+        Schema::create('picup_routes', function (Blueprint $table) {
             $table->id();
-            $table->string('picup_point');
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->foreignId('route_id')->constrained();
+            $table->integer('pickup_id');
+            $table->string('distance');
+            $table->string('time');
+            $table->double('fee');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreatePicuppointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('picuppoints');
+        Schema::dropIfExists('picup_routes');
     }
 }
