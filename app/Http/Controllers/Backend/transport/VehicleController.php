@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Vehicle;
 use App\Models\VehicleRoute;
-use App\Requests\VehicleRequest;
+use App\Http\Requests\VehicleRequest;
 
 
 
@@ -43,7 +43,9 @@ class VehicleController extends Controller
      */
     public function store(VehicleRequest $request)
     {
-        //
+       Vehicle::create($request->all());
+
+        return redirect()->back()->withSuccess('Add vehicle successfully');
     }
 
     /**

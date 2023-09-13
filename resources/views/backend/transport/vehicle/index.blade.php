@@ -46,8 +46,14 @@
                                    @foreach($all_data as $data)
 
                                    <tr>
-                                      <td>{{$data->hostel_name}}</td>
-                                      <td>{{$data->type}}</td>
+                                      <td>{{$data->vehicle_no}}</td>
+                                      <td>{{$data->vehicle_model}}</td>
+                                      <td>{{$data->manufacture_year}}</td>
+                                      <td>{{$data->chasis_number}}</td>
+                                      <td>{{$data->max_seating_capacity}}</td>
+                                      <td>{{$data->driver_name}}</td>
+                                      <td>{{$data->driver_licence}}</td>
+                                      <td>{{$data->driver_contact}}</td>
                                       <td>{{$data->address}}</td>
                                       <td>{{$data->intake}}</td>
 
