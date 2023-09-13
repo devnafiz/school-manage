@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\ClassController;
 use App\Http\Controllers\Backend\SubjectController;
 use App\Http\Controllers\Backend\HostelContoller;
 
+use App\Http\Controllers\Backend\transport\VehicleController;
+
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -29,4 +31,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])
  Route::post('/hostel/room/type',[HostelContoller::class,'roomTypeStore'])->name('room.type.store');
 Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.room.index'); 
  Route::post('/hostel/room/store',[HostelContoller::class,'roomStore'])->name('hostel.room.store'); 
+ //vehicle
+
+ Route::resource('vehicle',VehicleController::class);
 
