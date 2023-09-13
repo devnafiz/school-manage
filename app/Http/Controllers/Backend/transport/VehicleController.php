@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Vehicle;
 use App\Models\VehicleRoute;
+use App\Requests\VehicleRequest;
 
 
 
@@ -31,7 +32,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.transport.vehicle.add');
     }
 
     /**
@@ -40,7 +41,7 @@ class VehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
         //
     }
