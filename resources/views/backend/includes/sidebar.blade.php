@@ -59,6 +59,14 @@
                     :text="__('Transport')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
+
+                      <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.route.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Route')"
+                                :active="activeClass(Route::is('admin.route.index.*'), 'c-active')" />
+                        </li>
                        <li class="c-sidebar-nav-item">
                             <x-utils.link
                                 :href="route('admin.vehicle.index')"

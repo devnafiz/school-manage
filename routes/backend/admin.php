@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\SubjectController;
 use App\Http\Controllers\Backend\HostelContoller;
 
 use App\Http\Controllers\Backend\transport\VehicleController;
+use App\Http\Controllers\Backend\transport\RouteController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -34,4 +35,5 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  //vehicle
 
  Route::resource('vehicle',VehicleController::class);
+ Route::resource('route',RouteController::class);
 
