@@ -78,7 +78,7 @@
                             <x-utils.link
                                 :href="route('admin.class.index')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Classes')"
+                                :text="__('Assign Vehicle')"
                                 :active="activeClass(Route::is('admin.class.index.*'), 'c-active')" />
                         </li>
 

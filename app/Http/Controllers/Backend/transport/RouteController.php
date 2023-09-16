@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\transport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Route;
+use App\Models\Vehicle;
 
 class RouteController extends Controller
 {
@@ -87,5 +88,15 @@ class RouteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function vehRoute(){
+
+        $data['vehicles']= Vehicle::get();
+        $data['routes']=Route::with('vehicles')get();
+
+        return view('backend.transport.route.veh_route_view',$data);
+
+
     }
 }
