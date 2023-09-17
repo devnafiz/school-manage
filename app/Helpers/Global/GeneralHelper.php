@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Vehicle;
 
 if (! function_exists('appName')) {
     /**
@@ -48,5 +49,25 @@ if (! function_exists('homeRoute')) {
         }
 
         return 'frontend.index';
+    }
+
+    if(!function_exists('vehicle_names')){
+
+        function vehicle_names($value){
+
+            $vehicle_names = null;
+        foreach ($value as $val) {
+             
+            $vehicle_name = Vehicle::where('id', $val->pivot->vehicle_id)->pluck('vehicle_no')->first();
+//dd($vehicle_name);
+            $vehicle_names .= '<li>'.$vehicle_name . '</li>';
+
+        }
+         $vehicle_data = [
+            'vehicle_names' => substr($vehicle_names, 0, strlen($vehicle_names) - 1)
+            ];
+        return $vehicle_data;
+
+        }
     }
 }

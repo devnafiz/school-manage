@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Route;
 use App\Models\Vehicle;
+use App\Models\VehicleRoute;
 
 class RouteController extends Controller
 {
@@ -91,9 +92,11 @@ class RouteController extends Controller
     }
 
     public function vehRoute(){
-
+        //dd('ok');
         $data['vehicles']= Vehicle::get();
-        $data['routes']=Route::with('vehicles')get();
+        $data['routes']=Route::get();
+        $data['vehicle_routes']=Route::has('vehicles')->with('vehicles','vehicle')->get();
+        //dd($data['vehicle_routes']);
 
         return view('backend.transport.route.veh_route_view',$data);
 

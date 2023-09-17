@@ -76,10 +76,10 @@
                         </li>
                         <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.class.index')"
+                                :href="route('admin.vehicle.route.index')"
                                 class="c-sidebar-nav-link"
                                 :text="__('Assign Vehicle')"
-                                :active="activeClass(Route::is('admin.class.index.*'), 'c-active')" />
+                                :active="activeClass(Route::is('admin.vehicle.route.index.*'), 'c-active')" />
                         </li>
 
                      <li class="c-sidebar-nav-item">

@@ -36,7 +36,8 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
 
  Route::resource('vehicle',VehicleController::class);
  Route::resource('route',RouteController::class);
- Route::get('/vehicle/route',[RouteController::class,'vehRoute'])->name('vehicle.route.index');
+
+ Route::get('/all/route',[RouteController::class,'vehRoute'])->name('vehicle.route.index');
  Route::post('/vehicle/route/assign',[RouteController::class,'vehRouteAssaign'])->name('vehicle.route.store');
 
 

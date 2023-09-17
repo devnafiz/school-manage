@@ -22,14 +22,21 @@
                     @csrf
 
                        <div  class="form-group">
-                         <input type="text" name="class" class="form-control"/>
+                        <select class="form-control" name="route_id">
+                          <option>select route</option>
+                          @foreach($routes as $route)
+                           <option value="{{$route->id}}">{{$route->name}}</option>
+                           @endforeach
+                        </select>
  
                        </div>
+                   
+
                        <div class="form-group">
-                        @foreach($sections as $section)
+                        @foreach($vehicles as $vehicle)
                         <label>
-                        <input type="checkbox" name="section[]" value="<?php echo $section['id'] ?>" />
-                        {{ $section['section'] }}
+                        <input type="checkbox" name="vehicle_id[]" value="<?php echo $vehicle['id'] ?>" />
+                        {{ $vehicle['vehicle_no'] }}
                         </label><br/>
 
                        
@@ -53,16 +60,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>      
-                                   @foreach($routes as $route)
+                                   @foreach($vehicle_routes as $route)
 
                                    <tr>
                                       <td>{{$route->name}}</td>
 
                                       <td>
                                         <ul>
-                                        @foreach($route->vehicles as $vehicle)
-                                              <li>{{$vehicle->name}}</li>
-                                        @endforeach
+                                          <?php $vehicles = vehicle_names($route->vehicles); ?>
+                              
+                                          {!!$vehicles['vehicle_names']!!}
+
+                                       
                                       </ul>
                                       </td>
                                       <td>
