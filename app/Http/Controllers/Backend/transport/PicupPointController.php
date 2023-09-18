@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\transport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Picuppoint;
+use App\Models\Route;
 
 class PicupPointController extends Controller
 {
@@ -38,7 +39,11 @@ class PicupPointController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data =$this->picUpPointValidation();
+
+       Picuppoint::create($data);
+
+       return redirect()->route('admin.picup.index')->withSuccess('Add successfully');
     }
 
     /**
@@ -85,4 +90,33 @@ class PicupPointController extends Controller
     {
         //
     }
+
+
+    public  function picupPointRouteView(){
+
+
+
+    }
+
+    public function picupPointRouteAdd(){
+
+        $data['picup_points']=Picuppoint::get();
+        $data['routes']=Route::where('is_active',1)->get();
+    }
+
+
+    public function picUpPointValidation(){
+
+        $data=request()->validate([
+
+            'picup_point'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required'
+
+        ]);
+        return $data;
+    }
+
+
+
 }

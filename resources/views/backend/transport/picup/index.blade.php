@@ -20,7 +20,7 @@
                 
                <div class="col-md-12 col-lg-12">
                   <div class="text-right">
-                    <a href="{{route('admin.vehicle.create')}}" class="btn btn-info ">add Picup Point</a>
+                    <a href="{{route('admin.picup.create')}}" class="btn btn-info ">add Picup Point</a>
                   </div>
                    <h4>Picup Point List</h4>
                    <table class="table table-striped table-bordered table-hover example ajaxTable datatable  no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -41,9 +41,9 @@
                                    @foreach($all_data as $data)
 
                                    <tr>
-                                      <td>{{$data->vehicle_no}}</td>
-                                      <td>{{$data->vehicle_model}}</td>
-                                      <td>{{$data->manufacture_year}}</td>
+                                      <td>{{$data->picup_point}}</td>
+                                      <td>{{$data->latitude}}</td>
+                                      <td>{{$data->longitude}}</td>
                                       
 
                                       

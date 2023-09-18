@@ -59,6 +59,13 @@
                     :text="__('Transport')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.picup.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Picup Point')"
+                                :active="activeClass(Route::is('admin.picup.index.*'), 'c-active')" />
+                        </li>
 
                       <li class="c-sidebar-nav-item">
                             <x-utils.link
@@ -84,10 +91,10 @@
 
                      <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.section.index')"
+                                :href="route('admin.route.picup.point')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Sections')"
-                                :active="activeClass(Route::is('admin.section.index.*'), 'c-active')" />
+                                :text="__('Route Picup Point assign')"
+                                :active="activeClass(Route::is('admin.route.picup.point.*'), 'c-active')" />
                         </li>
                 </ul> 
         </li>   
