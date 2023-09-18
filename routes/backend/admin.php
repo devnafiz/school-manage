@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\HostelContoller;
 
 use App\Http\Controllers\Backend\transport\VehicleController;
 use App\Http\Controllers\Backend\transport\RouteController;
+use App\Http\Controllers\Backend\transport\PicupPointController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -39,5 +40,6 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
 
  Route::get('/all/route',[RouteController::class,'vehRoute'])->name('vehicle.route.index');
  Route::post('/vehicle/route/assign',[RouteController::class,'vehRouteAssaign'])->name('vehicle.route.store');
+ Route::resource('/picup',PicupPointController::class);
 
 

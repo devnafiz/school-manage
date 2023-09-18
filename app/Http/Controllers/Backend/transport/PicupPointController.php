@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\transport;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Picuppoint;
 
 class PicupPointController extends Controller
 {
@@ -14,7 +15,9 @@ class PicupPointController extends Controller
      */
     public function index()
     {
-        //
+         $data['all_data']=Picuppoint::paginate(10);
+
+         return view('backend.transport.picup.index',$data);
     }
 
     /**
@@ -24,7 +27,7 @@ class PicupPointController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.transport.picup.create');
     }
 
     /**
