@@ -102,6 +102,13 @@ class PicupPointController extends Controller
 
         $data['picup_points']=Picuppoint::get();
         $data['routes']=Route::where('is_active',1)->get();
+        return view('backend.transport.picup.create_pic_route',$data);
+    }
+
+    public function getPicupPoint(){
+
+        $data=Picuppoint::get();
+        return $data;
     }
 
 
