@@ -19,5 +19,10 @@ class Route extends Model
     	return $this->belongsTo(Vehicle::class,'vehicle_id', 'id');
     }
 
+    public function picups(){
+
+    	return $this->belongsToMany(Picuppoint::class,' picup_routes','route_id','pickup_id');
+    }
+
    
 }

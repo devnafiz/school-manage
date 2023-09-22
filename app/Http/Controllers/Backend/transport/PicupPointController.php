@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Picuppoint;
 use App\Models\Route;
-
+use App\Models\PicupRoute;
 class PicupPointController extends Controller
 {
     /**
@@ -104,6 +104,64 @@ class PicupPointController extends Controller
         $data['routes']=Route::where('is_active',1)->get();
         return view('backend.transport.picup.create_pic_route',$data);
     }
+    public  function picupPointRouteStore(Request $request){
+
+
+
+
+         $picupRoutes  = $this->picRouteValidation();
+
+
+
+         if($request->route_id==null){
+         return redirect()->back()->with('error','You do not select field');
+        }else{
+            $count_pickup=count($request->pickup_id);
+            for ($i=0; $i <$count_pickup ; $i++) { 
+                $purchase=new PicupRoute;
+               
+                $purchase->pickup_id=$request->pickup_id[$i];
+                $purchase->distance=$request->distance[$i];
+                $purchase->time=$request->time[$i];
+                $purchase->fee=$request->fee[$i];
+                $purchase->route_id =$request->route_id;
+                $purchase->save();
+
+
+            }
+
+
+         //dd($picupRoutes);
+        // $route_id =$request->route_id;
+         //dd($route_id);
+
+         // foreach ($picupRoutes as $k=>$picups) {
+         //    foreach($picups as $picup){
+         //    //dd($picup[$k]);
+         //  // dd($route_id);
+         //          // var_dump($picup);
+         //    $picup['route_id'] = $route_id;
+
+      
+         //   PicupRoute::create($picup);
+         //  }
+
+
+         // }
+
+         // foreach($picupRoutes as $key =>$value){
+
+         //    //$countries = array_count_values($value);
+         //    var_dump($value['route_id']);
+         //    $route = Route::find($value['route_id']);
+
+         //    $route->picups()->attach($value);
+         //   // dd($value);
+         // }
+       return redirect()->back()->withSuccess('Add successfully');
+   }
+
+    }
 
     public function getPicupPoint(){
 
@@ -122,6 +180,25 @@ class PicupPointController extends Controller
 
         ]);
         return $data;
+    }
+
+    public function picRouteValidation(){
+
+
+         $data=request()->validate([
+
+              
+           'route_id'=>'required',
+            'pickup_id'=>'required',
+            'distance'=>'nullable|max:50',
+            'time'=>'required',
+            'fee'=>'required',
+
+         ]);
+
+         return $data;
+
+
     }
 
 

@@ -18,7 +18,7 @@
         <div  class="row">
                <div class="col-md-12 col-lg-12 col-sm-12">
                    <h4> Add Route Picup Point</h4>
-                   <form action="{{route('admin.picup.store')}}" method="POST">
+                   <form action="{{route('admin.route.picup.point.store')}}" method="POST">
                     @csrf
 
                         <div class="row">
@@ -51,14 +51,15 @@
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add More Person"><span class="fa fa-plus"> add</span></a></th>
                                         <tr>
                                            <td><select name="pickup_id[]" class="form-control">
-                                          <option value="" selected>Select Designation</option>
-                                            <option value="President">President</option>
-                                            
+                                          <option value="" selected>Select </option>
+                                            @foreach($picup_points as $point)
+                                            <option value="{{$point->id}}">{{$point->picup_point}}</option>
+                                            @endforeach
                                            
                                         </select></td>
                                         <td><input type="text" name="distance[]" class="form-control" required></td>
                                        
-                                        <td><input type="text" name="time[]" class="form-control" required></td>
+                                        <td><input type="time" name="time[]" class="form-control" required></td>
                                         <td><input type="text" name="fee[]" class="form-control" required></td>
                                         <td><a href='javascript:void(0);'  class='remove '><span class='fa fa-remove ' style="color:red"></span></a></td>
                                         </tr>
