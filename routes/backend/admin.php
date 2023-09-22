@@ -45,6 +45,7 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  Route::get('/assign/picup-point',[PicupPointController::class,'picupPointRouteView'])->name('route.picup.point');
  Route::get('/assign/picup-point/add',[PicupPointController::class,'picupPointRouteAdd'])->name('route.picup.point.create');
   Route::post('/assign/picup-point/add',[PicupPointController::class,'picupPointRouteStore'])->name('route.picup.point.store');
+   Route::get('/assign/picup-point/edit/{id}',[PicupPointController::class,'picupPointRouteEdit'])->name('route.picup.point.edit');
  Route::get('/picuppoint',[PicupPointController::class,'getPicupPoint'])->name('get-picupoint');
 
 

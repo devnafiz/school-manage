@@ -64,7 +64,7 @@
 
                                       
                                       <td>
-                                        <a href=""><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('admin.route.picup.point.edit',$data->id)}}"><i class="fa fa-edit"></i></a>
                                         <a href=""><i class="fa fa-trash"></i></a>
                                       </td>
 

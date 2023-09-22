@@ -164,9 +164,21 @@ class PicupPointController extends Controller
          //   // dd($value);
          // }
        return redirect()->back()->withSuccess('Add successfully');
-   }
+        }
 
     }
+
+
+    public function picupPointRouteEdit(Request $request,$id){
+
+        $data['picup_points']=Picuppoint::get();
+        $data['routes']=Route::where('is_active',1)->get();
+        $data['all_data']= Route::has('picups')->with('picups')->where('id',$id)->first();
+         return view('backend.transport.picup.edit_route_pic',$data);
+        dd($data['all_data']);
+    }
+
+
 
     public function getPicupPoint(){
 
