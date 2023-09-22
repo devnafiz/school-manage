@@ -174,8 +174,9 @@ class PicupPointController extends Controller
         $data['picup_points']=Picuppoint::get();
         $data['routes']=Route::where('is_active',1)->get();
         $data['all_data']= Route::has('picups')->with('picups')->where('id',$id)->first();
+          //dd($data['all_data']);
          return view('backend.transport.picup.edit_route_pic',$data);
-        dd($data['all_data']);
+      
     }
 
 

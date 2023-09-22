@@ -49,6 +49,7 @@
                                         <th>Pickup Time *</th>
                                         <th>Monthly Fees *</th>
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add More Person"><span class="fa fa-plus"> add</span></a></th>
+                                        @foreach($all_data->picups as $data)
                                         <tr>
                                            <td>
                                             <select name="pickup_id[]" class="form-control">
@@ -62,8 +63,9 @@
                                        
                                         <td><input type="time" name="time[]" class="form-control" required></td>
                                         <td><input type="text" name="fee[]" class="form-control" required></td>
-                                        <td><a href='javascript:void(0);'  class='remove '><span class='fa fa-remove ' style="color:red"></span></a></td>
+                                        <td><a href='javascript:void(0);'  class='remove '><span class='fa fa-trash ' style="color:red"></span></a></td>
                                         </tr>
+                                        @endforeach
                                         </table>
                                 
                             </div>
