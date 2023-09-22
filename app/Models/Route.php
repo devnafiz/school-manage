@@ -21,7 +21,11 @@ class Route extends Model
 
     public function picups(){
 
-    	return $this->belongsToMany(Picuppoint::class,' picup_routes','route_id','pickup_id');
+    	return $this->belongsToMany(Picuppoint::class,'picup_routes','route_id','pickup_id')
+         ->withPivot('distance')
+          ->withPivot('time')
+          ->withPivot('fee')
+        ;
     }
 
    

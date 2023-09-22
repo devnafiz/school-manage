@@ -50,7 +50,8 @@
                                         <th>Monthly Fees *</th>
                                         <th><a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add More Person"><span class="fa fa-plus"> add</span></a></th>
                                         <tr>
-                                           <td><select name="pickup_id[]" class="form-control">
+                                           <td>
+                                            <select name="pickup_id[]" class="form-control">
                                           <option value="" selected>Select </option>
                                             @foreach($picup_points as $point)
                                             <option value="{{$point->id}}">{{$point->picup_point}}</option>

@@ -94,6 +94,11 @@ class PicupPointController extends Controller
 
     public  function picupPointRouteView(){
 
+        $data['all_data']= Route::has('picups')->with('picups')->get();
+       // dd($data['all_data']);
+
+        return view('backend.transport.picup.route_pic_index',$data);
+
 
 
     }
