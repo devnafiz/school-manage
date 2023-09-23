@@ -97,7 +97,8 @@
                                 :active="activeClass(Route::is('admin.route.picup.point.*'), 'c-active')" />
                         </li>
                 </ul> 
-        </li>   
+        </li>  
+
 
         <li class="c-sidebar-nav-dropdown {{ activeClass(Route::is('admin.auth.user.*') || Route::is('admin.auth.role.*'), 'c-open c-show') }}">
                 <x-utils.link
@@ -130,7 +131,40 @@
                                 :active="activeClass(Route::is('admin.hostel.index.*'), 'c-active')" />
                         </li>
                 </ul> 
-        </li>        
+        </li> 
+
+        <li class="c-sidebar-nav-dropdown {{ activeClass(Route::is('admin.auth.user.*') || Route::is('admin.auth.role.*'), 'c-open c-show') }}">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-user"
+                    class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('Expense')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                       <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.hostel.room.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Hostel Room')"
+                                :active="activeClass(Route::is('admin.hostel.room.index.*'), 'c-active')" />
+                        </li>
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.room.type.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Room Type')"
+                                :active="activeClass(Route::is('admin.room.type.index.*'), 'c-active')" />
+                        </li>
+
+                     <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.hostel.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Hostel')"
+                                :active="activeClass(Route::is('admin.hostel.index.*'), 'c-active')" />
+                        </li>
+                </ul> 
+        </li>              
 
         @if (
             $logged_in_user->hasAllAccess() ||

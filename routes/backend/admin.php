@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\transport\VehicleController;
 use App\Http\Controllers\Backend\transport\RouteController;
 use App\Http\Controllers\Backend\transport\PicupPointController;
 
+use App\Http\Controllers\Backend\Expense\ExpenseController;
+
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -47,6 +49,10 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
   Route::post('/assign/picup-point/add',[PicupPointController::class,'picupPointRouteStore'])->name('route.picup.point.store');
    Route::get('/assign/picup-point/edit/{id}',[PicupPointController::class,'picupPointRouteEdit'])->name('route.picup.point.edit');
  Route::get('/picuppoint',[PicupPointController::class,'getPicupPoint'])->name('get-picupoint');
+
+ //expense
+ Route::resource('/expense',ExpenseController::class);
+
 
 
 
