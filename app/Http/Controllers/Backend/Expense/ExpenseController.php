@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\ExpenseCategory;
+use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
@@ -16,7 +17,10 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        dd('ok');
+         $data['expense_cat']=ExpenseCategory::where('is_active',1)->get();
+         $data['expenses']=Expense::with('expenCategory')->orderBy('id','desc')->paginate(10);
+
+         return view('Backend.expense.index',$data);
     }
 
     /**
@@ -26,7 +30,11 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+
+       
+
+
+        
     }
 
     /**
@@ -37,7 +45,11 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $expense_data =$this->expenseValidateion();
+
+        Expense::create($expense_data);
+        return redirect()->route('admin.picup.index')->withSuccess('Add successfully');
+
     }
 
     /**
@@ -84,4 +96,25 @@ class ExpenseController extends Controller
     {
         //
     }
+
+  public function expenseValidateion(){
+
+        $data=request()->validate([
+
+            'expense_categories_id' => 'nullable|numeric',
+            'name' => 'required|string',
+            'invoice_no' => 'required|numeric',
+            'date' => 'required|date',
+            'amount' => 'required|numeric',
+            'documents' => 'nullable|file',
+            'note' => 'nullable|string',
+  
+         ]);
+
+       return $data; 
+
+
+  }
+
+   
 }
