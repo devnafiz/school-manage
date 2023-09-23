@@ -143,10 +143,10 @@
                 <ul class="c-sidebar-nav-dropdown-items">
                        <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.hostel.room.index')"
+                                :href="route('admin.expense.index')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Hostel Room')"
-                                :active="activeClass(Route::is('admin.hostel.room.index.*'), 'c-active')" />
+                                :text="__('Expense')"
+                                :active="activeClass(Route::is('admin.expense.index.*'), 'c-active')" />
                         </li>
                         <li class="c-sidebar-nav-item">
                             <x-utils.link
@@ -158,10 +158,10 @@
 
                      <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.hostel.index')"
+                                :href="route('admin.expensecategory.index')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Hostel')"
-                                :active="activeClass(Route::is('admin.hostel.index.*'), 'c-active')" />
+                                :text="__('Expense Category')"
+                                :active="activeClass(Route::is('admin.expensecategory.index.*'), 'c-active')" />
                         </li>
                 </ul> 
         </li>              

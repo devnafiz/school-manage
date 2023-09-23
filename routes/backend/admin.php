@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\transport\RouteController;
 use App\Http\Controllers\Backend\transport\PicupPointController;
 
 use App\Http\Controllers\Backend\Expense\ExpenseController;
+use App\Http\Controllers\Backend\Expense\ExpenseCategoryController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -51,7 +52,8 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  Route::get('/picuppoint',[PicupPointController::class,'getPicupPoint'])->name('get-picupoint');
 
  //expense
- Route::resource('/expense',ExpenseController::class);
+ Route::resource('/expense', ExpenseController::class);
+ Route::resource('/expensecategory', ExpenseCategoryController::class);
 
 
 
