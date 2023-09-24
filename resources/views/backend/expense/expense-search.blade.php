@@ -16,13 +16,13 @@
 
         <x-slot name="body">
         <div  class="row">
-               <div class="col-md-4">
-                   <h4> Add Expense</h4>
+               <div class="col-md-6">
+                   <h4> Search Expense</h4>
                    <form action="{{route('admin.expense.store')}}" method="POST">
                     @csrf
 
                        <div  class="form-group">
-                         <label>Expense Category Name</label>
+                         <label>Expense Category search</label>
                              <select  name="expense_categories_id" class="form-control">
                                  <option value="">Select</option>
                                  @foreach($expense_cat as $cat )
@@ -31,48 +31,33 @@
                              </select> 
  
                        </div>
+                       
+
+
+                       <input type="submit" value="search" class="btn btn-info"/>
+
+                   </form>
+               </div> 
+
+               <div class="col-md-6">
+                   <h4> </h4>
+                   <form action="{{route('admin.expense.store')}}" method="POST">
+                    @csrf
+
+                       
                        <div class="form-group">
                           <label>Name</label>
                           <input type="text" name="name" class="form-control"/>
                         </div>
 
-                         <div class="form-group">
-                          <label>Invoice Number</label>
-                          <input type="text" name="invoice_no" class="form-control"/>
-                        </div>
-
-                         <div class="form-group">
-                          <label>Date</label>
-                          <input type="date" name="date" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                          <label>Amount</label>
-                          <input type="text" name="amount" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                          <label>Document</label>
-                          <input type="file" name="documents" class="form-control"/>
-                        </div>
-                         <div class="form-group">
-                          <label>Note</label>
-                          <textarea class="form-control" name="note"></textarea>
-                        </div>
+                        
 
 
-                       <div class="form-group">
-                      
-                        <label>active
-                         <input type="checkbox" name="is_active"  value="yes"/>
-                        </label>
-                      
-                       </div>
-
-
-                       <input type="submit" value="save" class="btn btn-info"/>
+                       <input type="submit" value="search" class="btn btn-info"/>
 
                    </form>
                </div> 
-               <div class="col-md-8">
+               <div class="col-md-12">
                    <h4>Expense  list</h4>
                    <table class="table table-striped table-bordered table-hover example dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>

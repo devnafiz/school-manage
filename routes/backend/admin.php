@@ -54,6 +54,7 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  //expense
  Route::resource('/expense', ExpenseController::class);
  Route::resource('/expensecategory', ExpenseCategoryController::class);
+ Route::get('/search-expense',[ExpenseController::class,'searchExpense'])->name('search.expense');
 
 
 

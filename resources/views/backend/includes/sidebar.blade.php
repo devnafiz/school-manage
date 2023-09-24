@@ -150,10 +150,10 @@
                         </li>
                         <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.room.type.index')"
+                                :href="route('admin.search.expense')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Room Type')"
-                                :active="activeClass(Route::is('admin.room.type.index.*'), 'c-active')" />
+                                :text="__('Search Expense')"
+                                :active="activeClass(Route::is('admin.search.expense.*'), 'c-active')" />
                         </li>
 
                      <li class="c-sidebar-nav-item">

@@ -71,7 +71,10 @@ class ExpenseController extends Controller
      */
     public function edit($id)
     {
-        //
+         $data['expense_cat']=ExpenseCategory::where('is_active',1)->get();
+         $data['expense']=Expense::with('expenCategory')->where('id',$id)->first();
+
+         return view('Backend.expense.edit',$data);
     }
 
     /**
@@ -95,6 +98,15 @@ class ExpenseController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //search expense
+    public function searchExpense(){
+
+         $data['expense_cat']=ExpenseCategory::where('is_active',1)->get();
+         $data['expenses']=Expense::with('expenCategory')->orderBy('id','desc')->paginate(10);
+
+        return view('Backend.expense.expense-search',$data);
     }
 
   public function expenseValidateion(){
