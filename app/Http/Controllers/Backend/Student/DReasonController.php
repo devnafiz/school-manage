@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\DisableReson;
 
 class DReasonController extends Controller
 {

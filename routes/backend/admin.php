@@ -14,6 +14,10 @@ use App\Http\Controllers\Backend\transport\PicupPointController;
 use App\Http\Controllers\Backend\Expense\ExpenseController;
 use App\Http\Controllers\Backend\Expense\ExpenseCategoryController;
 
+use App\Http\Controllers\Backend\Student\DReasonController;
+use App\Http\Controllers\Backend\Student\StudentCategoryController;
+use App\Http\Controllers\Backend\Student\StudentHouseController;
+
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -55,6 +59,14 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  Route::resource('/expense', ExpenseController::class);
  Route::resource('/expensecategory', ExpenseCategoryController::class);
  Route::get('/search-expense',[ExpenseController::class,'searchExpense'])->name('search.expense');
+
+ //student
+
+ Route::resource('/disable-reason', DReasonController::class);
+ Route::resource('/student-house', StudentHouseController::class);
+ Route::resource('/studentCategory', StudentCategoryController::class);
+
+
 
 
 
