@@ -15,7 +15,10 @@ class StudentHouseController extends Controller
      */
     public function index()
     {
-        //
+         $data['all_data']=StusentHouse::all();
+         //dd($data['all_data']);
+
+        return view('backend.student.house.index',$data);
     }
 
     /**
@@ -36,7 +39,18 @@ class StudentHouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'house_name'=>'required|string',
+            'description'=>'nullable|string'
+
+        ]);
+
+        $data = new StusentHouse();
+
+        $data->house_name = $request->house_name;
+        $data->description = $request->description;
+        $data->save();
+        return redirect()->back()->withSuccess('add  successfully');
     }
 
     /**
@@ -58,7 +72,9 @@ class StudentHouseController extends Controller
      */
     public function edit($id)
     {
-        //
+       // dd($id);
+         $data['edit_data']=StusentHouse::findOrFail($id);
+          return view('backend.student.house.edit',$data);
     }
 
     /**
@@ -70,7 +86,18 @@ class StudentHouseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'house_name'=>'required|string',
+            'description'=>'nullable|string'
+
+        ]);
+
+        $data =  StusentHouse::findOrFail($id);
+
+        $data->house_name = $request->house_name;
+        $data->description = $request->description;
+        $data->save();
+        return redirect()->back()->withSuccess('successfully Updated');
     }
 
     /**
