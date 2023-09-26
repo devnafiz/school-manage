@@ -15,7 +15,12 @@ class DReasonController extends Controller
      */
     public function index()
     {
-        //
+
+        $data['all_data']=DisableReson::all();
+         //dd($data['all_data']);
+
+        return view('backend.student.disable.index',$data);
+       
     }
 
     /**
@@ -36,7 +41,16 @@ class DReasonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'reason'=>'required|string'
+
+        ]);
+
+        $data = new DisableReson();
+
+        $data->reason = $request->reason;
+        $data->save();
+        return redirect()->back()->withSuccess('add  successfully');
     }
 
     /**
@@ -58,7 +72,8 @@ class DReasonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['edit_data']=DisableReson::findOrFail($id);
+          return view('backend.student.disable.edit',$data);
     }
 
     /**
@@ -70,7 +85,14 @@ class DReasonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+            'reason'=>'required|string'
+
+        ]);
+         $data=DisableReson::findOrFail($id);
+         $data->reason = $request->reason;
+         $data->save();
+         return redirect()->route('admin.disable-reason.index')->withSuccess('add  successfully updated');
     }
 
     /**

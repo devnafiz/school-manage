@@ -164,7 +164,39 @@
                                 :active="activeClass(Route::is('admin.expensecategory.index.*'), 'c-active')" />
                         </li>
                 </ul> 
-        </li>              
+        </li>
+          <li class="c-sidebar-nav-dropdown {{ activeClass(Route::is('admin.auth.user.*') || Route::is('admin.auth.role.*'), 'c-open c-show') }}">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-user"
+                    class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('Student Info')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                       <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.studentCategory.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Student Category')"
+                                :active="activeClass(Route::is('admin.studentCategory.index.*'), 'c-active')" />
+                        </li>
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.student-house.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Student House')"
+                                :active="activeClass(Route::is('admin.student-house.index.*'), 'c-active')" />
+                        </li>
+
+                     <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.disable-reason.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('disabled Reason')"
+                                :active="activeClass(Route::is('admin.disable-reason.index.*'), 'c-active')" />
+                        </li>
+                </ul> 
+        </li>               
 
         @if (
             $logged_in_user->hasAllAccess() ||

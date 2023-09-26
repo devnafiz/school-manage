@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('User Management'))
+@section('title', __('Disable Reason Management'))
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -18,7 +18,7 @@
         <div  class="row">
                <div class="col-md-4">
                    <h4> Add Name</h4>
-                   <form action="{{route('admin.class.store')}}" method="POST">
+                   <form action="{{route('admin.disable-reason.store')}}" method="POST">
                     @csrf
 
                        <div  class="form-group">
@@ -48,10 +48,10 @@
                                    <tr>
                                       <td>{{$reason->reason}}</td>
 
-                                      
-                                      </td>
+                                      <td>{{$reason->id}}</td>
+                                     
                                       <td>
-                                        <a href="{{route('admin.class.edit',$reason->id)}}"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('admin.disable-reason.edit',$reason->id)}}"><i class="fa fa-edit"></i></a>
                                         <a href=""><i class="fa fa-trash"></i></a>
                                       </td>
 
