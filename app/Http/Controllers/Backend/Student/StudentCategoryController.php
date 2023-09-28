@@ -16,7 +16,9 @@ class StudentCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data['all_data']=StudentCategory::paginate(10);
+       return view('backend.student.category.index',$data);
+
     }
 
     /**
@@ -37,7 +39,18 @@ class StudentCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|string',
+           
+
+        ]);
+
+        $data = new StudentCategory();
+
+        $data->name = $request->name;
+        $data->is_active =1;
+        $data->save();
+        return redirect()->back()->withSuccess('add  successfully');
     }
 
     /**

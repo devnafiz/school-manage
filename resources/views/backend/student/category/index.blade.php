@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Disable Reason Management'))
+@section('title', __('Student Category Management'))
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -9,7 +9,7 @@
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            @lang('Disable Reason  List')
+            @lang('Student Category  List')
         </x-slot>
 
         
@@ -17,12 +17,12 @@
         <x-slot name="body">
         <div  class="row">
                <div class="col-md-4">
-                   <h4> Add Name</h4>
-                   <form action="{{route('admin.disable-reason.store')}}" method="POST">
+                   <h4> Add Category</h4>
+                   <form action="{{route('admin.studentCategory.store')}}" method="POST">
                     @csrf
 
                        <div  class="form-group">
-                         <input type="text" name="reason" class="form-control"/>
+                         <input type="text" name="name" class="form-control"/>
  
                        </div>
                        
@@ -33,25 +33,25 @@
                    </form>
                </div> 
                <div class="col-md-8">
-                   <h4>rterte</h4>
+                   <h4>Category List</h4>
                    <table class="table table-striped table-bordered table-hover example dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                     <tr role="row">
-                                      <th>Reason</th>
+                                        <th>Name</th>
                                         <th >id</th>
                                         <th >Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>      
-                                   @foreach($all_data as $reason)
+                                   @foreach($all_data as $category)
 
                                    <tr>
-                                      <td>{{$reason->reason}}</td>
+                                      <td>{{$category->name}}</td>
 
-                                      <td>{{$reason->id}}</td>
+                                      <td>{{$category->id}}</td>
                                      
                                       <td>
-                                        <a href="{{route('admin.disable-reason.edit',$reason->id)}}"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('admin.studentCategory.edit',$category->id)}}"><i class="fa fa-edit"></i></a>
                                         <a href=""><i class="fa fa-trash"></i></a>
                                       </td>
 

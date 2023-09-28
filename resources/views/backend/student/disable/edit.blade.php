@@ -23,7 +23,7 @@
                     @method('PUT')
 
                        <div  class="form-group">
-                         <input type="text" name="  reason" class="form-control" value="{{$edit_data->reason}}" />
+                         <input type="text" name="reason" class="form-control" value="{{$edit_data->reason}}" />
  
                        </div>
                        
