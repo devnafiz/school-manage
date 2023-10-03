@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Backend\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\StusentHouse;
-use App\Models\StudentCategory;
 
-class StudentCategoryController extends Controller
+use App\Models\StudentCategory;
+use App\Models\Classes;
+use App\Models\Section;
+use App\Models\StusentHouse;
+use App\Models\Hostel;
+use App\Models\HostelRoom;
+
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +21,7 @@ class StudentCategoryController extends Controller
      */
     public function index()
     {
-        $data['all_data']=StudentCategory::paginate(10);
-       return view('backend.student.category.index',$data);
-
+        //
     }
 
     /**
@@ -28,7 +31,8 @@ class StudentCategoryController extends Controller
      */
     public function create()
     {
-        //
+         $data['s_categories']=StudentCategory::where('is_active',1)->get();
+         $data['classess']=Classes::where('is_active',1)->get();
     }
 
     /**
@@ -39,18 +43,7 @@ class StudentCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required|string',
-           
-
-        ]);
-
-        $data = new StudentCategory();
-
-        $data->name = $request->name;
-        $data->is_active =1;
-        $data->save();
-        return redirect()->back()->withSuccess('add  successfully');
+        //
     }
 
     /**
@@ -72,8 +65,7 @@ class StudentCategoryController extends Controller
      */
     public function edit($id)
     {
-        $data['edit_data']=StudentCategory::findOrFail($id);
-          return view('backend.student.category.edit',$data);
+        //
     }
 
     /**
@@ -85,26 +77,7 @@ class StudentCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-       // dd($request->all());
-        $request->validate([
-            'name'=>'required|string',
-           
-
-        ]);
-
-        $data =  StudentCategory::findOrFail($id);
-
-        $data->name = $request->name;
-        if($data->is_active==$request->is_active){
-            $data->is_active = 1; 
-        }else{
-
-             $data->is_active = 0; 
-        }
-
-          $data->save();
-        return redirect()->back()->withSuccess('successfully Updated');
+        //
     }
 
     /**
