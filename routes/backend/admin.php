@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\Expense\ExpenseCategoryController;
 use App\Http\Controllers\Backend\Student\DReasonController;
 use App\Http\Controllers\Backend\Student\StudentCategoryController;
 use App\Http\Controllers\Backend\Student\StudentHouseController;
+use App\Http\Controllers\Backend\Student\StudentController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -65,6 +66,8 @@ Route::get('/hostel/room',[HostelContoller::class,'hostelRoom'])->name('hostel.r
  Route::resource('/disable-reason', DReasonController::class);
  Route::resource('/student-house', StudentHouseController::class);
  Route::resource('/studentCategory', StudentCategoryController::class);
+ Route::resource('/student', StudentController::class);
+
 
 
 

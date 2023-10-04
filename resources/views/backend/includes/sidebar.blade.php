@@ -173,6 +173,13 @@
                     :text="__('Student Info')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.student.create')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Student create')"
+                                :active="activeClass(Route::is('admin.student.create.*'), 'c-active')" />
+                        </li>
                        <li class="c-sidebar-nav-item">
                             <x-utils.link
                                 :href="route('admin.studentCategory.index')"

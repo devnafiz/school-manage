@@ -33,6 +33,15 @@ class StudentController extends Controller
     {
          $data['s_categories']=StudentCategory::where('is_active',1)->get();
          $data['classess']=Classes::where('is_active',1)->get();
+         $data['sections']=Section::where('is_active',1)->get();
+         $data['s_houses']=StusentHouse::where('is_active',1)->get();
+         $data['hostel']=Hostel::where('is_active',1)->get();
+         $data['Hostelrooms']=HostelRoom::where('is_active',1)->get();
+
+          return view('backend.student.student.create',$data);
+
+
+    
     }
 
     /**
